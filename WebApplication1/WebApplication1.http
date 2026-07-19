@@ -1,0 +1,39 @@
+### Get all tickets
+GET http://localhost:5280/api/tickets
+
+### Get one ticket
+GET http://localhost:5280/api/tickets/1
+
+### Create a ticket
+POST http://localhost:5280/api/tickets
+Content-Type: application/json
+
+{
+  "title": "electricity problem",
+  "description": "no electricity after 7 pm on sunday",
+  "category": "Electricity",
+  "priority": "Urgent",
+  "reportedBy": "Sara"
+}
+
+### Update ticket 1 (expect 200 + updated ticket)
+PUT http://localhost:5280/api/tickets/1
+Content-Type: application/json
+
+{
+  "title": "Pothole on Main St - fixed?",
+  "description": "Follow-up after repair crew visited",
+  "category": "Roads",
+  "priority": "Medium"
+}
+
+### Update a ticket that doesn't exist (expect 404)
+PUT http://localhost:5280/api/tickets/9999
+Content-Type: application/json
+
+{
+  "title": "Doesn't matter",
+  "description": "Doesn't matter",
+  "category": "Roads",
+  "priority": "Low"
+}
