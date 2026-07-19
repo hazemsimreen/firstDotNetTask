@@ -37,3 +37,9 @@ Content-Type: application/json
   "category": "Roads",
   "priority": "Low"
 }
+
+### Delete an existing ticket (expect 204)
+DELETE http://localhost:5280/api/tickets/1
+
+### Delete a ticket that doesn't exist (expect 404)
+DELETE http://localhost:5280/api/tickets/9999
