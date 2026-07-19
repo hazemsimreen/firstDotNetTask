@@ -66,3 +66,6 @@ Content-Type: application/json
   "author": "Agent Lina",
   "text": "Doesn't matter"
 }
+
+### Get all categories with live ticket counts (expect 200 + array)
+GET http://localhost:5280/api/categories

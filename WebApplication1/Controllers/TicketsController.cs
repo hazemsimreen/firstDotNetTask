@@ -7,7 +7,7 @@ namespace WebApplication1.Controllers;
 [Route("[controller]")]
 public class TicketsController : ControllerBase
 {
-    private static readonly List<Ticket> Tickets = new()
+    public static readonly List<Ticket> Tickets = new() 
     {
         new Ticket
         {
