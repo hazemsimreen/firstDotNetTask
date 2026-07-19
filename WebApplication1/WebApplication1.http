@@ -49,3 +49,20 @@ GET http://localhost:5280/api/tickets/2/comments
 
 ### Get comments for a ticket that doesn't exist (expect 404)
 GET http://localhost:5280/api/tickets/9999/comments
+
+POST http://localhost:5280/api/tickets/2/comments
+Content-Type: application/json
+
+{
+  "author": "Agent Lina",
+  "text": "Crew dispatched, ETA 30 minutes."
+}
+
+### Add a comment to a non-existent ticket (expect 404)
+POST http://localhost:5280/api/tickets/9999/comments
+Content-Type: application/json
+
+{
+  "author": "Agent Lina",
+  "text": "Doesn't matter"
+}
