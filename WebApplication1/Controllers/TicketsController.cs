@@ -116,6 +116,17 @@ public class TicketsController : ControllerBase
         Tickets.Remove(ticket);
         return NoContent(); // 204
     }
+    [HttpGet("{ticketId}/comments")]
+    public IActionResult GetComments(int ticketId)
+    {
+        var ticket = Tickets.FirstOrDefault(t => t.Id == ticketId);
+        if (ticket == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(ticket.Comments);
+    }
     
     
 }

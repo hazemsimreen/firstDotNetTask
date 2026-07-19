@@ -43,3 +43,9 @@ DELETE http://localhost:5280/api/tickets/1
 
 ### Delete a ticket that doesn't exist (expect 404)
 DELETE http://localhost:5280/api/tickets/9999
+
+### Get comments for a ticket (expect 200 + array)
+GET http://localhost:5280/api/tickets/2/comments
+
+### Get comments for a ticket that doesn't exist (expect 404)
+GET http://localhost:5280/api/tickets/9999/comments
