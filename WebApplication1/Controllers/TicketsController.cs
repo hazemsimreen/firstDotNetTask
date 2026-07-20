@@ -116,34 +116,5 @@ public class TicketsController : ControllerBase
         Tickets.Remove(ticket);
         return NoContent(); // 204
     }
-    [HttpGet("{ticketId}/comments")]
-    public IActionResult GetComments(int ticketId)
-    {
-        var ticket = Tickets.FirstOrDefault(t => t.Id == ticketId);
-        if (ticket == null)
-        {
-            return NotFound();
-        }
-
-        return Ok(ticket.Comments);
-    }
-    [HttpPost("{ticketId}/comments")]
-    public IActionResult AddComment(int ticketId, [FromBody] Comment comment)
-    {
-        var ticket = Tickets.FirstOrDefault(t => t.Id == ticketId);
-        if (ticket == null)
-        {
-            return NotFound();
-        }
-
-        comment.Id = ticket.Comments.Count > 0 ? ticket.Comments.Max(c => c.Id) + 1 : 1;
-        comment.TicketId = ticketId;
-        comment.CreatedAt = DateTime.UtcNow;
-
-        ticket.Comments.Add(comment);
-
-        return CreatedAtAction(nameof(GetComments), new { ticketId }, comment);
-    }
-    
-    
+   
 }
